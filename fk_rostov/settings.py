@@ -21,7 +21,8 @@ INSTALLED_APPS = [
     'pages',
     'match',
     'team',
-    'blog'
+    'blog',
+    'stadium'
 ]
 
 MIDDLEWARE = [
