@@ -1,0 +1,114 @@
+{% load static %}
+<footer class="footer">
+        <div class="container">
+            <div class="footer__wrap">
+                <div class="footer__left">
+                    <div class="footer__logo">
+                        <a href="/">
+                            <div class="footer__logo-text">
+                                ФК Ростов
+                            </div>
+                            <div class="footer__logo-caption">
+                                Билеты футбольного клуба
+                            </div>
+                        </a>
+                    </div>
+                    <div class="footer__copyright">
+                        © 2020 www.ticket.ru Продажа билетов. Все права защищены
+                    </div>
+                </div>
+                <div class="footer__middle">
+                    <div class="footer__address-item">
+                        Адрес: 125424 г.Москва, Волоколамское ш., 69
+                    </div>
+                    <div class="footer__address-item">
+                        ИНН/ОГРН: 5515295994 / 1581608523219
+                    </div>
+                </div>
+                <div class="footer__right">
+                    <div class="header__call-phone">
+                        <a href="tel:+8 800 555-35-35">
+                            <span class="color-gray"> 8 800</span> 555-35-35
+                        </a>
+                    </div>
+                    <div class="footer__order-call">
+                       <a href="#" data-fancybox="" data-src="#modal-order" data-options='{"touch" : false}'>
+                            заказать звонок
+                        </a>
+                    </div>
+                    <div class="footer__company-name">
+                        ООО "Тикетc-Спартак"
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+<div class="modal modal-order" id="modal-order" style="display: none;">
+    <div class="modal__wrap">
+        <div class="modal__heading">
+            <h2>
+                Заказать звонок
+            </h2>
+            <div class="modal__close">
+                <a href="#">
+                    <img src="img/svg/close-pop.svg" alt="">
+                </a>
+            </div>
+        </div>
+        <form action="" class="modal__content">
+            <div class="modal__text">
+                Оставьте ваши контактные данные
+            </div>
+            <div class="modal__field">
+                <div class="type-input">
+                    <label class="form-label">Имя</label>
+                    <input type="text">
+                </div>
+            </div>
+            <div class="modal__field">
+                <div class="type-input">
+                    <label class="form-label">Телефон</label>
+                    <input type="tel">
+                </div>
+            </div>
+            <div class="modal__field">
+                <div class="type-input">
+                    <label class="form-label">Комментарий</label>
+                    <textarea></textarea>
+                </div>
+            </div>
+            <div class="modal__text">
+                Отправляя эту форму, вы соглашаетесь с порядком <br> обработки персональных данных.
+            </div>
+            <div class="type-button">
+                <button type="submit">
+                   Заказать звонок
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal modal-thanks" id="modal-thanks" style="display: none;">
+    <div class="modal__wrap">
+        <div class="modal__heading">
+            <h2>
+                Спасибо за заявку
+            </h2>
+            <div class="modal__close">
+                <a href="#">
+                    <img src="img/svg/close-pop.svg" alt="">
+                </a>
+            </div>
+        </div>
+        <div  class="modal__content">
+            <div class="modal__text">
+                Мы перезвоним вам в ближайшее время
+            </div>
+            <div class="type-button">
+                <a href="#">
+                    <span>На главную</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

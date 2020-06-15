@@ -1,0 +1,150 @@
+{% load static %}
+   <header class="header">
+        <div class="container">
+            <div class="header__wrap">
+                <div class="header__left">
+                    <div class="open-menu">
+                        <a href="#">
+                            <svg width="25" height="15" viewBox="0 0 25 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.105469" y="0.618164" width="24" height="2" fill="#0C4CA3"/>
+                                <path d="M0.105469 6.61816H14.1055V8.61816H0.105469V6.61816Z" fill="#0C4CA3"/>
+                                <path d="M0.105469 12.6182H8.10547V14.6182H0.105469V12.6182Z" fill="#0C4CA3"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="header__logo">
+                        <a href="/">
+                            <div class="header__logo-text">
+                                ФК Ростов
+                            </div>
+                            <div class="header__logo-caption">
+                                Билеты футбольного клуба
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="header__right">
+                    <div class="header__call">
+                        <div class="header__call-icon">
+                            <a href="#">
+                                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M21.5229 16.3372V19.3372C21.5252 19.9004 21.2899 20.4384 20.875 20.8191C20.46 21.1998 19.9038 21.3879 19.3429 21.3372C16.2657 21.0029 13.3099 19.9514 10.7129 18.2672C8.29672 16.7319 6.24823 14.6834 4.71289 12.2672C3.02287 9.65842 1.97113 6.68821 1.64289 3.59721C1.59236 3.03808 1.77916 2.48347 2.15766 2.06883C2.53615 1.6542 3.07148 1.41774 3.63289 1.41721H6.63289C7.63675 1.40733 8.49239 2.14318 8.63289 3.13721C8.75951 4.09728 8.99434 5.03994 9.33289 5.94721C9.60762 6.67809 9.4319 7.50202 8.88289 8.05721L7.61289 9.32721C9.03644 11.8308 11.1093 13.9037 13.6129 15.3272L14.8829 14.0572C15.4381 13.5082 16.262 13.3325 16.9929 13.6072C17.9002 13.9458 18.8428 14.1806 19.8029 14.3072C20.8085 14.4491 21.5481 15.322 21.5229 16.3372Z" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="header__call-content">
+                            <div class="header__call-phone">
+                                <a href="tel:+8 800 555-35-35">
+                                   <span class="color-gray"> 8 800</span> 555-35-35
+                                </a>
+                            </div>
+                            <div class="header__call-order">
+                                 <a href="#" data-fancybox="" data-src="#modal-order" data-options='{"touch" : false}'>
+                                    заказать звонок
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__cart">
+                        <a href="{% url 'cart' %}">
+                            <div class="header__cart-button">
+                                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.52344 23.4172C9.62801 23.4172 10.5234 22.5218 10.5234 21.4172C10.5234 20.3127 9.62801 19.4172 8.52344 19.4172C7.41887 19.4172 6.52344 20.3127 6.52344 21.4172C6.52344 22.5218 7.41887 23.4172 8.52344 23.4172Z" stroke="#0C4CA3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M20.5234 23.4172C21.628 23.4172 22.5234 22.5218 22.5234 21.4172C22.5234 20.3127 21.628 19.4172 20.5234 19.4172C19.4189 19.4172 18.5234 20.3127 18.5234 21.4172C18.5234 22.5218 19.4189 23.4172 20.5234 23.4172Z" stroke="#0C4CA3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M6.19344 6.41724H23.5234L21.8434 14.8072C21.6547 15.7575 20.8121 16.4358 19.8434 16.4172H9.27344C8.26292 16.4258 7.40477 15.6792 7.27344 14.6772L5.75344 3.15724C5.62306 2.16283 4.77635 1.41875 3.77344 1.41724H1.52344" stroke="#0C4CA3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+{#                            <div class="header__cart-value">#}
+{#                                1#}
+{#                            </div>#}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header__hidden">
+            <div class="header__hidden-top">
+                <nav class="header__menu">
+                    <ul>
+                        <li>
+                            <a href="{% url 'posts' %}">
+                                Новости
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'matches' %}">
+                                Список матчей
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Состав команды
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'stadium' %}">
+                                О стадионе
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'contact' %}">
+                                Контакты
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header__hidden-bottom">
+                    <div class="header__hidden-section">
+                    <div class="header__hidden-company">
+                        ООО "Тикетc-Спартак"
+                    </div>
+                </div>
+                    <div class="header__hidden-section">
+                        <div class="header__hidden-section-title">
+                            Адрес:
+                        </div>
+                        <div class="header__hidden-section-value">
+                            125424 г.Москва, Волоколамское ш., 69
+                        </div>
+                    </div>
+                    <div class="header__hidden-section">
+                        <div class="header__hidden-section-title">
+                            ИНН/ОГРН:
+                        </div>
+                        <div class="header__hidden-section-value">
+                            5515295994 / 1581608523219
+                        </div>
+                    </div>
+                    <div class="header__hidden-section">
+                        <div class="header__hidden-copyright">
+                            © 2020 www.ticket.ru <br>
+                            Продажа билетов. <br>
+                            Все права защищены
+                        </div>
+                    </div>
+
+                <div class="header__call">
+                    <div class="header__call-icon">
+                        <a href="#">
+                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M21.5229 16.3372V19.3372C21.5252 19.9004 21.2899 20.4384 20.875 20.8191C20.46 21.1998 19.9038 21.3879 19.3429 21.3372C16.2657 21.0029 13.3099 19.9514 10.7129 18.2672C8.29672 16.7319 6.24823 14.6834 4.71289 12.2672C3.02287 9.65842 1.97113 6.68821 1.64289 3.59721C1.59236 3.03808 1.77916 2.48347 2.15766 2.06883C2.53615 1.6542 3.07148 1.41774 3.63289 1.41721H6.63289C7.63675 1.40733 8.49239 2.14318 8.63289 3.13721C8.75951 4.09728 8.99434 5.03994 9.33289 5.94721C9.60762 6.67809 9.4319 7.50202 8.88289 8.05721L7.61289 9.32721C9.03644 11.8308 11.1093 13.9037 13.6129 15.3272L14.8829 14.0572C15.4381 13.5082 16.262 13.3325 16.9929 13.6072C17.9002 13.9458 18.8428 14.1806 19.8029 14.3072C20.8085 14.4491 21.5481 15.322 21.5229 16.3372Z" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="header__call-content">
+                        <div class="header__call-phone">
+                            <a href="tel:+8 800 555-35-35">
+                                <span class="color-gray"> 8 800</span> 555-35-35
+                            </a>
+                        </div>
+                        <div class="header__call-order">
+                             <a href="#" data-fancybox="" data-src="#modal-order" data-options='{"touch" : false}'>
+                                заказать звонок
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>

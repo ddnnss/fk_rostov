@@ -1,0 +1,347 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="breadcrumbs__wrap">
+                    <div class="type-button">
+                        <a href="{{ request.META.HTTP_REFERER }}">
+                            <span class="type-button__text tri-left">
+                                назад
+                            </span>
+                        </a>
+                    </div>
+                    <div class="breadcrumbs__content">
+                        <a href="/">
+                            Главная
+                        </a>
+                        <a href="{% url 'cart' %}">
+                            Корзина
+                        </a>
+                        <span>
+                            Оформление заказа
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cart">
+            <div class="container">
+                <form class="cart__wrap">
+                    <div class="cart__left">
+                        <h2>
+                            Заказ
+                        </h2>
+                        <div class="cart__left-section">
+                            <div class="cart__title">
+                                Данные получателя билетов
+                            </div>
+                            <div class="cart__form">
+                                <div class="cart__form-field">
+                                    <div class="type-input filled">
+                                        <label class="form-label">Имя</label>
+                                        <input type="text" class="filled" value="Иванов Иван Иванович">
+                                    </div>
+                                </div>
+                                <div class="cart__form-field">
+                                    <div class="type-input filled">
+                                        <label class="form-label">Телефон</label>
+                                        <input type="tel" value="8 999 988 76 65" class="filled">
+                                    </div>
+                                </div>
+                                <div class="cart__form-field">
+                                    <div class="type-input filled">
+                                        <label class="form-label">Почта</label>
+                                        <input type="tel" value="example@gmail.com" class="filled">
+                                    </div>
+                                </div>
+                                <div class="cart__form-field">
+                                    <div class="type-input filled">
+                                        <label class="form-label">Адрес доставки</label>
+                                        <input type="text" value="ул. Курская 25а, кв. 43" class="filled">
+                                    </div>
+                                </div>
+                                <div class="cart__form-field checkbox">
+                                    <div class="type-checkbox">
+                                        <label>
+                                            <input type="checkbox" checked>
+                                            <div class="type-checkbox__content">
+                                                <div class="type-checkbox__checkmark">
+                                                </div>
+                                                Выслать подтверждение на e-mail
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="cart__form-field checkbox">
+                                    <div class="type-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <div class="type-checkbox__content">
+                                                <div class="type-checkbox__checkmark">
+                                                </div>
+                                                Даю согласие с <a href="">договором-офертой</a>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart__left-section">
+                            <div class="cart__title">
+                                Билеты в заказе
+                            </div>
+                            <div class="cart__table">
+                                <div class="matches__item">
+                                    <div class="matches__item-teams">
+                                        <div class="matches__item-teams-item">
+                                            <div class="team-logo">
+                                                <img src="img/home/cl1.png" alt="">
+                                            </div>
+                                            <div class="team-name">
+                                                Ростов
+                                            </div>
+                                        </div>
+                                        <div class="matches__item-teams-item">
+                                            <div class="team-logo">
+                                                <img src="img/home/cl2.png" alt="">
+                                            </div>
+                                            <div class="team-name">
+                                                Спартак
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="matches__item-details">
+                                        <div class="matches__item-details-item">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M17.5 8.33334C17.5 14.1667 10 19.1667 10 19.1667C10 19.1667 2.5 14.1667 2.5 8.33334C2.5 4.19121 5.85786 0.833344 10 0.833344C14.1421 0.833344 17.5 4.19121 17.5 8.33334ZM12.5 8.33334C12.5 9.71406 11.3807 10.8333 10 10.8333C8.61929 10.8333 7.5 9.71406 7.5 8.33334C7.5 6.95263 8.61929 5.83334 10 5.83334C11.3807 5.83334 12.5 6.95263 12.5 8.33334Z" fill="#F9CA22"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10 19.1667C10 19.1667 17.5 14.1667 17.5 8.33334C17.5 4.19121 14.1421 0.833344 10 0.833344C5.85786 0.833344 2.5 4.19121 2.5 8.33334C2.5 14.1667 10 19.1667 10 19.1667ZM12.5 8.33334C12.5 9.71406 11.3807 10.8333 10 10.8333C8.61929 10.8333 7.5 9.71406 7.5 8.33334C7.5 6.95263 8.61929 5.83334 10 5.83334C11.3807 5.83334 12.5 6.95263 12.5 8.33334Z" fill="#F9CA22"/>
+                                            </svg>
+                                            <div class="matches__item-details-content">
+                                                <div class="matches__item-details-title">
+                                                    Ростов vs Спартак
+                                                </div>
+                                                <div class="matches__item-details-text">
+                                                    17 января, 20:00
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="matches__item-details-item">
+                                            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M15.6245 10.175L9.64948 16.15C9.33687 16.463 8.91266 16.6388 8.47031 16.6388C8.02796 16.6388 7.60376 16.463 7.29115 16.15L0.132812 8.99999V0.666656H8.46615L15.6245 7.82499C16.2707 8.47505 16.2707 9.52493 15.6245 10.175ZM5.54948 7.33332C6.23983 7.33332 6.79948 6.77368 6.79948 6.08332C6.79948 5.39297 6.23983 4.83332 5.54948 4.83332C4.85912 4.83332 4.29948 5.39297 4.29948 6.08332C4.29948 6.77368 4.85912 7.33332 5.54948 7.33332Z" fill="#F9CA22"/>
+                                            </svg>
+                                            <div class="matches__item-details-content">
+                                                <div class="matches__item-details-title">
+                                                    Премьер Лига
+                                                </div>
+                                                <div class="matches__item-details-text">
+                                                    Арена Ростов
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cart__table-item cart-ticket">
+                                    <div class="cart-ticket__count">
+                                        #1
+                                    </div>
+                                    <div class="cart-ticket__content">
+                                        <div class="cart-ticket__content-item">
+                                            <div class="cart-ticket__content-item-title">
+                                                Сектор:
+                                            </div>
+                                            <div class="cart-ticket__content-item-value">
+                                                417
+                                            </div>
+                                        </div>
+                                        <div class="cart-ticket__content-item">
+                                            <div class="cart-ticket__content-item-title">
+                                                Ряд:
+                                            </div>
+                                            <div class="cart-ticket__content-item-value">
+                                                20
+                                            </div>
+                                        </div>
+                                        <div class="cart-ticket__content-item">
+                                            <div class="cart-ticket__content-item-title">
+                                                Место:
+                                            </div>
+                                            <div class="cart-ticket__content-item-value">
+                                                7
+                                            </div>
+                                        </div>
+                                        <div class="cart-ticket__content-item">
+                                            <div class="cart-ticket__content-item-title">
+                                                Цена:
+                                            </div>
+                                            <div class="cart-ticket__content-item-value">
+                                                2 100 руб
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cart-ticket__remove">
+                                        <a href="#">
+                                            <img src="img/svg/cart-close.svg" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="cart__table-item cart-ticket">
+                                    <div class="cart-ticket__count">
+                                        #2
+                                    </div>
+                                    <div class="cart-ticket__content">
+                                        <div class="cart-ticket__content-item">
+                                            <div class="cart-ticket__content-item-title">
+                                                Сектор:
+                                            </div>
+                                            <div class="cart-ticket__content-item-value">
+                                                417
+                                            </div>
+                                        </div>
+                                        <div class="cart-ticket__content-item">
+                                            <div class="cart-ticket__content-item-title">
+                                                Ряд:
+                                            </div>
+                                            <div class="cart-ticket__content-item-value">
+                                                20
+                                            </div>
+                                        </div>
+                                        <div class="cart-ticket__content-item">
+                                            <div class="cart-ticket__content-item-title">
+                                                Место:
+                                            </div>
+                                            <div class="cart-ticket__content-item-value">
+                                                7
+                                            </div>
+                                        </div>
+                                        <div class="cart-ticket__content-item">
+                                            <div class="cart-ticket__content-item-title">
+                                                Цена:
+                                            </div>
+                                            <div class="cart-ticket__content-item-value">
+                                                2 100 руб
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cart-ticket__remove">
+                                        <a href="#">
+                                            <img src="img/svg/cart-close.svg" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="cart__table-item cart-ticket">
+                                    <div class="cart-ticket__count">
+                                        #3
+                                    </div>
+                                    <div class="cart-ticket__content">
+                                        <div class="cart-ticket__content-item">
+                                            <div class="cart-ticket__content-item-title">
+                                                Сектор:
+                                            </div>
+                                            <div class="cart-ticket__content-item-value">
+                                                417
+                                            </div>
+                                        </div>
+                                        <div class="cart-ticket__content-item">
+                                            <div class="cart-ticket__content-item-title">
+                                                Ряд:
+                                            </div>
+                                            <div class="cart-ticket__content-item-value">
+                                                20
+                                            </div>
+                                        </div>
+                                        <div class="cart-ticket__content-item">
+                                            <div class="cart-ticket__content-item-title">
+                                                Место:
+                                            </div>
+                                            <div class="cart-ticket__content-item-value">
+                                                7
+                                            </div>
+                                        </div>
+                                        <div class="cart-ticket__content-item">
+                                            <div class="cart-ticket__content-item-title">
+                                                Цена:
+                                            </div>
+                                            <div class="cart-ticket__content-item-value">
+                                                2 100 руб
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cart-ticket__remove">
+                                        <a href="#">
+                                            <img src="img/svg/cart-close.svg" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart__right">
+                        <div class="cart__widget sticky">
+                            <div class="cart__widget-head">
+                                <div class="type-button">
+                                    <button type="submit">
+                                        <span class="type-button__text">
+                                           Оформить заказ
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="cart__widget-body">
+                                <div class="cart__widget-total">
+                                    <span>
+                                        Заказ
+                                    </span>
+                                    <span class="color-gray">
+                                        3 билета
+                                    </span>
+                                </div>
+                                <div class="cart__widget-item">
+                                    <span class="color-gray">
+                                        Билеты
+                                    </span>
+                                    <span>
+                                        6 300 руб
+                                    </span>
+                                </div>
+                                <div class="cart__widget-item">
+                                    <span class="color-gray">
+                                        Парковка
+                                    </span>
+                                    <span>
+                                       1 100 руб
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="cart__widget-section">
+                                <div class="cart__widget-item">
+                                    <span class="color-gray">
+                                        Доставка
+                                    </span>
+                                    <span>
+                                        200 руб
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="cart__widget-foot">
+                                <div class="cart__widget-total">
+                                    <span>
+                                      Итог
+                                    </span>
+                                    <span>
+                                     7 400 руб
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+{% block js %}
+    {{ block.super }}
+{% endblock %}

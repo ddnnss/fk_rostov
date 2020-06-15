@@ -1,0 +1,156 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block content %}
+      <main>
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="breadcrumbs__wrap">
+                    <div class="type-button">
+                        <a href="{{ request.META.HTTP_REFERER }}">
+                            <span class="type-button__text tri-left">
+                                назад
+                            </span>
+                        </a>
+                    </div>
+                    <div class="breadcrumbs__content">
+                        <a href="/">
+                            Главная
+                        </a>
+                        <span>
+                        О стадионе
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about-seo">
+            <div class="container">
+                <h2>
+                    О стадионе
+                </h2>
+                <div class="about-seo__wrap">
+                    <div class="about-seo__left">
+                        <img src="{% static 'img/seo/st-seo.png' %}" alt="">
+                    </div>
+                    <div class="about-seo__right">
+                        <ul class="about-seo__list">
+                            <li>
+                                Стадион «Олимп 2» («Ростсельмаш») был домашним стадионом ФК Ростов до 2018 года
+                            </li>
+                            <li>
+                                В 2018 году для проведения ЧМ по футболу в Ростове на Дону был построен новый стадион "Ростов Арена"
+                            </li>
+                            <li>
+                                На площади более 37 гектаров стоит новая домашняя арена
+                                ФК "Ростов" с вместимостью 45000 чел.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="place-seo">
+            <div class="container">
+                <div class="place-seo__wrap">
+                    <div class="place-seo__left">
+                        <h2>
+                            Как добраться
+                        </h2>
+                        <div class="place-seo__slides">
+                            <div class="place-seo__slides-item">
+                                <div class="place-seo__slides-item-title">
+                                    <span class="place-seo__slides-item-icon"></span>
+                                    Метро
+                                </div>
+                                <div class="place-seo__slides-item-content">
+                                     На сегодня территория стадиона рассчитана на ограниченное количество парковочных мест, поэтому возможности разместить автомобили без указанного выше пропуска не будет.
+                                </div>
+                            </div>
+                            <div class="place-seo__slides-item active">
+                                <div class="place-seo__slides-item-title">
+                                    <span class="place-seo__slides-item-icon"></span>
+                                    Личный автотранспорт
+                                </div>
+                                <div class="place-seo__slides-item-content">
+                                    На сегодня территория стадиона рассчитана на ограниченное количество парковочных мест, поэтому возможности разместить автомобили без указанного выше пропуска не будет.
+                                </div>
+                            </div>
+                            <div class="place-seo__slides-item">
+                                <div class="place-seo__slides-item-title">
+                                    <span class="place-seo__slides-item-icon"></span>
+                                    Наземный городской транспорт
+                                </div>
+                                <div class="place-seo__slides-item-content">
+                                    На сегодня территория стадиона рассчитана на ограниченное количество парковочных мест, поэтому возможности разместить автомобили без указанного выше пропуска не будет.
+                                </div>
+                            </div>
+                            <div class="place-seo__slides-item">
+                                <div class="place-seo__slides-item-title">
+                                    <span class="place-seo__slides-item-icon"></span>
+                                    Пригородные поезда
+                                </div>
+                                <div class="place-seo__slides-item-content">
+                                    На сегодня территория стадиона рассчитана на ограниченное количество парковочных мест, поэтому возможности разместить автомобили без указанного выше пропуска не будет.
+                                </div>
+                            </div>
+                            <div class="place-seo__slides-item">
+                                <div class="place-seo__slides-item-title">
+                                    <span class="place-seo__slides-item-icon"></span>
+                                    Проход на территорию стадиона
+                                </div>
+                                <div class="place-seo__slides-item-content">
+                                    На сегодня территория стадиона рассчитана на ограниченное количество парковочных мест, поэтому возможности разместить автомобили без указанного выше пропуска не будет.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="place-seo__right type-content">
+                        <h2>
+                            Места
+                        </h2>
+                        <p>
+                            Трибуны стадиона оборудованы удобными сидениями и обеспечивают отличный обзор всего поля из любого места
+                        </p>
+                        <p>
+                            <span class="text-bold">450 мест</span> для людей с инвалидностью <br>
+                            <span class="text-bold"> 26 мест</span> скайбоксов <br>
+                            <span class="text-bold"> 1280  мест</span> для прессы <br>
+                        </p>
+                        <div class="type-button">
+                            <a href="#">
+                                <span class="type-button__text">
+                                    Купить билеты
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="seo-text">
+            <div class="container">
+                <div class="seo-text__wrap type-content">
+                    <p>
+                       <span class="text-bold">«Ростов-Арена»</span>  — футбольный стадион в Ростове на Дону на Левобережной ул., 2Б, домашняя арена футбольного клуба "Ростов".
+                        Вместимость стадиона — 45.000 человек.
+                    </p>
+                    <p>
+                        Местом расположения будущего стадиона был выбран левый берег реки Дон. Цена постройки составит 19.8 млрд рублей.
+                        <br>
+                        Ростовский стадион выделяется среди остальных оригинальным архитектурным решением. Северная трибуна будет открытой, а за ней откроется красивый вид на реку Дон. Согласно проекту, представленному 13 мая в Москве, ростовский стадион будет отвечать всем базовым требованиям ФИФА — здесь будет досконально продуманная система безопасности, места для людей со специфическими нуждами, VIP-ложа, места для СМИ и т. д.
+                        На крупнейшей площади города — Театральной площади предполагается смонтировать огромные экраны, чтобы болельщики, которым не досталось мест на стадионе, смогли посмотреть игры чемпионата мира.
+                    </p>
+                </div>
+            </div>
+        </section>
+       {% include 'pages/page_parts/vip_form.html' %}
+       {% include 'pages/page_parts/our_stadium.html' %}
+       {% include 'pages/page_parts/actual_picture.html' %}
+       {% include 'pages/page_parts/info_block.html' %}
+
+    </main>
+{% endblock %}
+{% block js %}
+    {{ block.super }}
+{% endblock %}

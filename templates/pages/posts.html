@@ -1,0 +1,67 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="breadcrumbs__wrap">
+                    <div class="type-button">
+                        <a href="{{ request.META.HTTP_REFERER }}">
+                            <span class="type-button__text tri-left">
+                                назад
+                            </span>
+                        </a>
+                    </div>
+                    <div class="breadcrumbs__content">
+                        <a href="#">
+                            Главная
+                        </a>
+                        <span>
+                            Новости
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="news-list">
+            <div class="container">
+                <h2>
+                    Новости
+                </h2>
+                <div class="news-list__wrap">
+                    {% for post in allposts %}
+                        <div class="type-new">
+                        <div class="type-new__heading">
+                                    <span>
+                                        {{ post.author }}
+                                    </span>
+                            <span>
+                                       {{ post.created_at | date:'d.m.Y' }}
+                                    </span>
+                        </div>
+                        <div class="type-new__img">
+                              <a href="{% url 'post' post.name_slug %}">
+                                <img src="{{ post.get_image }}" alt="{{ post.name }}">
+                            </a>
+                        </div>
+                        <div class="type-new__info">
+                            <div class="type-new__title">
+                                <a href="{% url 'post' post.name_slug %}">
+                                   {{ post.name }}
+                                </a>
+                            </div>
+                            <div class="type-new__text">
+                                {{ post.description | truncatewords_html:8 | safe }}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+{% block js %}
+    {{ block.super }}
+{% endblock %}

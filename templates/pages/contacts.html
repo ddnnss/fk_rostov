@@ -1,0 +1,122 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block content %}
+<main>
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="breadcrumbs__wrap">
+                    <div class="type-button">
+                        <a href="{{ request.META.HTTP_REFERER }}">
+                            <span class="type-button__text tri-left">
+                                назад
+                            </span>
+                        </a>
+                    </div>
+                    <div class="breadcrumbs__content">
+                        <a href="/">
+                            Главная
+                        </a>
+                        <span>
+                            Контакты
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contacts">
+            <div class="container">
+                <h2>
+                    Контакты
+                </h2>
+                <div class="contacts__map">
+                    <div id="map" style="height: 450px; width: 100%;"></div>
+                </div>
+                <div class="contacts__info">
+                    <div class="contacts__info-left type-content">
+
+                        <p>
+                            <span class="text-bold"> ООО</span> "Театральный Эксклюзив" <br>
+                            <span class="text-bold">ОГРН: </span> 1097746511092 <br>
+                            <span class="text-bold"> ИНН: </span> 7724716874
+                        </p>
+                        <p>
+                            <span class="text-bold"> Адреса арен:</span> <br>
+                            Арена ЦСКА. 3-я Песчаная ул., 2А, Москва, 125252 <br>
+                            ВТБ Арена Динамо. Ленинградский пр-т, д. 36, Москва, 1125167
+                        </p>
+                        <p>
+                            <span class="text-bold">Юридический адрес:</span> <br>
+                            115583, город Москва, Ясеневая улица, 21-2, 120
+                        </p>
+                        <p>
+                            <span class="text-bold">Фактический адрес:</span> <br>
+                            107031, г. Москва, Столешников переулок, 11
+                        </p>
+                        <p>
+                            <span class="text-bold">Телефон:</span> <br>
+                            <a href="tel:+7(495)488-69-63">+7(495)488-69-63</a>
+                        </p>
+                        <p>
+                            <span class="text-bold">Email:</span> <br>
+                            <a href="mailto:info@fhr-ticket.ru">info@fhr-ticket.ru</a>
+                        </p>
+                    </div>
+                    <div class="contacts__info-right">
+                        <div class="place-seo__slides">
+                            <div class="place-seo__slides-item">
+                                <div class="place-seo__slides-item-title">
+                                    <span class="place-seo__slides-item-icon"></span>
+                                    Метро
+                                </div>
+                                <div class="place-seo__slides-item-content">
+                                    На сегодня территория стадиона рассчитана на ограниченное количество парковочных мест, поэтому возможности разместить автомобили без указанного выше пропуска не будет.
+                                </div>
+                            </div>
+                            <div class="place-seo__slides-item active">
+                                <div class="place-seo__slides-item-title">
+                                    <span class="place-seo__slides-item-icon"></span>
+                                    Личный автотранспорт
+                                </div>
+                                <div class="place-seo__slides-item-content">
+                                    На сегодня территория стадиона рассчитана на ограниченное количество парковочных мест, поэтому возможности разместить автомобили без указанного выше пропуска не будет.
+                                </div>
+                            </div>
+                            <div class="place-seo__slides-item">
+                                <div class="place-seo__slides-item-title">
+                                    <span class="place-seo__slides-item-icon"></span>
+                                    Наземный городской транспорт
+                                </div>
+                                <div class="place-seo__slides-item-content">
+                                    На сегодня территория стадиона рассчитана на ограниченное количество парковочных мест, поэтому возможности разместить автомобили без указанного выше пропуска не будет.
+                                </div>
+                            </div>
+                            <div class="place-seo__slides-item">
+                                <div class="place-seo__slides-item-title">
+                                    <span class="place-seo__slides-item-icon"></span>
+                                    Пригородные поезда
+                                </div>
+                                <div class="place-seo__slides-item-content">
+                                    На сегодня территория стадиона рассчитана на ограниченное количество парковочных мест, поэтому возможности разместить автомобили без указанного выше пропуска не будет.
+                                </div>
+                            </div>
+                            <div class="place-seo__slides-item">
+                                <div class="place-seo__slides-item-title">
+                                    <span class="place-seo__slides-item-icon"></span>
+                                    Проход на территорию стадиона
+                                </div>
+                                <div class="place-seo__slides-item-content">
+                                    На сегодня территория стадиона рассчитана на ограниченное количество парковочных мест, поэтому возможности разместить автомобили без указанного выше пропуска не будет.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+{% block js %}
+    {{ block.super }}
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=33233d2d-78dc-4bf1-97ad-ba7846ecb266&lang=ru_RU" type="text/javascript"></script>
+{% endblock %}

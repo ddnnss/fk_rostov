@@ -1,0 +1,52 @@
+{% load static %}
+  <section class="our-stadium">
+            <div class="our-stadium__left">
+                <div class="container">
+                    <div class="our-stadium__left-wrap">
+                        <h2>
+                            Стадион Ростов Арена
+                        </h2>
+                        <div class="our-stadium__text">
+                            Стадион «Ростов Арена» возведен в Ростове-на-Дону на левом берегу Дона специально к Чемпионату мира в России. Интересно, что из-за особенностей рельефа и близости к реке строителям пришлось создавать намывной шестиметровый слой песка. Открытие арены состоялось 15 апреля 2018 года.
+                        </div>
+                        <div class="type-button">
+                            <a href="{% url 'stadium' %}">
+                            <span>
+                                Читать больше
+                            </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="our-stadium__right">
+                    <div class="our-stadium__slider-wrap">
+                        <div class="our-stadium__slider swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="our-stadium__slide">
+                                        <img src="{% static 'img/home/st1.png' %}" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="our-stadium__slide">
+                                        <img src="{% static 'img/home/n1.png' %}" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="our-stadium__slide">
+                                        <img src="{% static 'img/home/st1.png' %}" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="our-stadium__slide">
+                                        <img src="{% static 'img/home/st1.png' %}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="our-stadium__slider-pagination">
+                    </div>
+                </div>
+            </div>
+        </section>

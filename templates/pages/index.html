@@ -1,0 +1,355 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <section class="welcome">
+            <div class="container">
+                <div class="welcome__wrap">
+                    <div class="welcome__left">
+                        <div class="welcome__player-img">
+                            <img src="{% static 'img/home/f-player-dots.png' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="welcome__right">
+                        <h1>
+                            Дистрибьюция билетов футбольного клуба Ростов
+                        </h1>
+                        <div class="welcome__text">
+                            Билеты на ближайшие матчи футбольного клуба Ростов
+                        </div>
+                        <div class="welcome__current-match">
+                            <div class="welcome__current-match-title">
+                                Ближайший матч
+                            </div>
+                            <div class="welcome__current-match-content">
+                                <div class="welcome__current-match-teams">
+                                    <div class="welcome__current-match-teams-item">
+                                        <div class="team-logo">
+                                            <img src="{{ nearestMatch.team1.icon.url }}" alt="">
+                                        </div>
+                                        <div class="team-name">
+                                            {{ nearestMatch.team1.name }}
+                                        </div>
+                                    </div>
+                                    <div class="welcome__current-match-teams-item">
+                                        <div class="team-logo">
+                                            <img src="{{ nearestMatch.team2.icon.url }}" alt="">
+                                        </div>
+                                        <div class="team-name">
+                                             {{ nearestMatch.team2.name }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="welcome__current-match-details">
+                                    <div class="welcome__current-match-details-left">
+                                        <div class="welcome__current-match-details-title">
+                                            {{ nearestMatch.team1.name }} vs {{ nearestMatch.team2.name }}
+                                        </div>
+                                        <div class="welcome__current-match-details-league">
+                                            {{ nearestMatch.ligue }}
+                                        </div>
+                                        <div class="welcome__current-match-details-date">
+                                            {{ nearestMatch.date | date }}, {{ nearestMatch.place }}
+                                        </div>
+                                    </div>
+                                    <div class="welcome__current-match-details-right">
+                                        <div class="type-button">
+                                            <a href="#">
+                                                <span class="type-button__text">
+                                                     Билеты
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="benefits">
+            <div class="container">
+                <div class="benefits__wrap">
+                    <div class="benefits__item">
+                        <div class="benefits__item-icon">
+                            <img src="{% static 'img/svg/ben1.svg' %}" alt="">
+                        </div>
+                        <div class="benefits__item-text">
+                            <div class="benefits__item-title">
+                                Гарантия подлинности
+                            </div>
+                            <p>
+                                Выбирайте иеста с лучшим обзором <br>
+                                и отправляйтесь на матч
+                            </p>
+                        </div>
+                    </div>
+                    <div class="benefits__item">
+                        <div class="benefits__item-icon">
+                            <img src="{% static 'img/svg/ben2.svg' %}" alt="">
+                        </div>
+                        <div class="benefits__item-text">
+                            <div class="benefits__item-title">
+                                Билеты на лучшие места
+                            </div>
+                            <p>
+                                Выбирайте иеста с лучшим обзором <br>
+                                и отправляйтесь на матч
+                            </p>
+                        </div>
+                    </div>
+                    <div class="benefits__item">
+                        <div class="benefits__item-icon">
+                            <img src="{% static 'img/svg/ben3.svg' %}" alt="">
+                        </div>
+                        <div class="benefits__item-text">
+                            <div class="benefits__item-title">
+                                Лучшие цены
+                            </div>
+                            <p>
+                                Выбирайте иеста с лучшим обзором <br>
+                                и отправляйтесь на матч
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="matches">
+            <div class="container">
+                <div class="block-heading">
+                    <div class="block-heading__left">
+                        <h2>
+                            Список матчей
+                        </h2>
+                        <div class="watch-all">
+                            <a href="{% url 'matches' %}">
+                                Смотреть всё
+                            </a>
+                        </div>
+                    </div>
+                    <div class="block-heading__right">
+                        <div class="matches__slider-prev">
+                            <span class="type-slider-prev">
+
+                            </span>
+                        </div>
+                        <div class="matches__slider-next">
+                             <span class="type-slider-next">
+
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="matches__slider-wrap">
+                    <div class="matches__slider swiper-container">
+                        <div class="swiper-wrapper">
+                            {% for pass in data %}
+                            <div class="swiper-slide">
+                                <div class="matches__slide">
+                                    {% for match in pass %}
+                                    <div class="matches__item">
+                                        <div class="matches__item-teams">
+                                            <div class="matches__item-teams-item">
+                                                <div class="team-logo">
+                                                    <img src="{{ match.team1.icon.url }}" alt="">
+                                                </div>
+                                                <div class="team-name">
+                                                    {{ match.team1.name }}
+                                                </div>
+                                            </div>
+                                            <div class="matches__item-teams-item">
+                                              <div class="team-logo">
+                                                  <img src="{{ match.team2.icon.url }}" alt="">
+                                              </div>
+                                              <div class="team-name">
+                                                  {{ match.team2.name }}
+                                              </div>
+                                          </div>
+                                        </div>
+                                        <div class="matches__item-details">
+                                            <div class="matches__item-details-item">
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17.5 8.33334C17.5 14.1667 10 19.1667 10 19.1667C10 19.1667 2.5 14.1667 2.5 8.33334C2.5 4.19121 5.85786 0.833344 10 0.833344C14.1421 0.833344 17.5 4.19121 17.5 8.33334ZM12.5 8.33334C12.5 9.71406 11.3807 10.8333 10 10.8333C8.61929 10.8333 7.5 9.71406 7.5 8.33334C7.5 6.95263 8.61929 5.83334 10 5.83334C11.3807 5.83334 12.5 6.95263 12.5 8.33334Z" fill="#F9CA22"/>
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10 19.1667C10 19.1667 17.5 14.1667 17.5 8.33334C17.5 4.19121 14.1421 0.833344 10 0.833344C5.85786 0.833344 2.5 4.19121 2.5 8.33334C2.5 14.1667 10 19.1667 10 19.1667ZM12.5 8.33334C12.5 9.71406 11.3807 10.8333 10 10.8333C8.61929 10.8333 7.5 9.71406 7.5 8.33334C7.5 6.95263 8.61929 5.83334 10 5.83334C11.3807 5.83334 12.5 6.95263 12.5 8.33334Z" fill="#F9CA22"/>
+                                                </svg>
+                                                <div class="matches__item-details-content">
+                                                    <div class="matches__item-details-title">
+                                                        {{ match.team1.name }} vs {{ match.team2.name }}
+                                                    </div>
+                                                    <div class="matches__item-details-text">
+                                                        {{ match.date | date }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="matches__item-details-item">
+                                                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M15.6245 10.175L9.64948 16.15C9.33687 16.463 8.91266 16.6388 8.47031 16.6388C8.02796 16.6388 7.60376 16.463 7.29115 16.15L0.132812 8.99999V0.666656H8.46615L15.6245 7.82499C16.2707 8.47505 16.2707 9.52493 15.6245 10.175ZM5.54948 7.33332C6.23983 7.33332 6.79948 6.77368 6.79948 6.08332C6.79948 5.39297 6.23983 4.83332 5.54948 4.83332C4.85912 4.83332 4.29948 5.39297 4.29948 6.08332C4.29948 6.77368 4.85912 7.33332 5.54948 7.33332Z" fill="#F9CA22"/>
+                                                </svg>
+                                                <div class="matches__item-details-content">
+                                                    <div class="matches__item-details-title">
+                                                        {{ match.ligue }}
+                                                    </div>
+                                                    <div class="matches__item-details-text">
+                                                        {{ match.place }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="matches__item-get-ticket">
+                                            <div class="type-button">
+                                                <a href="#">
+                                                    <span class="type-button__text tri-right">
+                                                          Выбрать билет
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="news">
+            <div class="container">
+                <div class="block-heading">
+                    <div class="block-heading__left">
+                        <h2>
+                            Новости
+                        </h2>
+                        <div class="watch-all">
+                            <a href="{% url 'posts' %}">
+                                Смотреть всё
+                            </a>
+                        </div>
+                    </div>
+                    <div class="block-heading__right">
+                        <div class="news__slider-prev">
+                            <span class="type-slider-prev">
+
+                            </span>
+                        </div>
+                        <div class="news__slider-next">
+                             <span class="type-slider-next">
+
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="news__slider-wrap">
+                    <div class="news-slider swiper-container">
+                        <div class="swiper-wrapper">
+                            {% for post in allPosts %}
+                                <div class="swiper-slide">
+                                <div class="type-new">
+                                    <div class="type-new__heading">
+                                    <span>
+                                        {{ post.author }}
+                                    </span>
+                                        <span>
+                                        {{post.created_at | date}}
+                                    </span>
+                                    </div>
+                                    <div class="type-new__img">
+                                        <a href="{% url 'post' post.name_slug %}">
+                                            <img src="{{ post.get_image }}" alt="{{ post.name }}">
+                                        </a>
+                                    </div>
+                                    <div class="type-new__info">
+                                        <div class="type-new__title">
+                                            <a href="{% url 'post' post.name_slug %}">
+                                                {{ post.name }}
+                                            </a>
+                                        </div>
+                                        <div class="type-new__text">
+                                            {{ post.description | truncatewords_html:8 | safe }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+       {% include 'pages/page_parts/vip_form.html' %}
+        {% include 'pages/page_parts/our_stadium.html' %}
+        <section class="places">
+            <div class="container">
+                <div class="places__wrap">
+                    <div class="places__left">
+                        <h2>
+                            Места
+                        </h2>
+                        <div class="places__row">
+                            <div class="places__item">
+                                <div class="places__item-title">
+                                    Бронза
+                                </div>
+                                <div class="places__item-text">
+                                    Премиум места на трибунах А3 или А6 включает в себя парковочное место.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="places__row">
+                            <div class="places__item">
+                                <div class="places__item-title">
+                                    Сильвер
+                                </div>
+                                <div class="places__item-text">
+                                    Премиум места на трибуне А5. Питание в ресторане Silver, парковочное место.
+                                </div>
+                            </div>
+                            <div class="places__item">
+                                <div class="places__item-title">
+                                    Платина
+                                </div>
+                                <div class="places__item-text">
+                                    Самые изысканные места на трибунах А4, А5, питание в ресторане Platinum, подарки, парковочное место.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="places__row">
+                            <div class="places__item">
+                                <div class="places__item-title">
+                                    Голд
+                                </div>
+                                <div class="places__item-text">
+                                    Премиум места на трибуне А4. Питание в ресторане Gold, парковочное место.
+                                </div>
+                            </div>
+                            <div class="places__item">
+                                <div class="places__item-title">
+                                    VIP-Ложа
+                                </div>
+                                <div class="places__item-text">
+                                    Вип ложи продаются целиком от 8 до 12 человек. В ложу входит изысканное ресторанное обслуживание, хостес, подарки, парковочные места у входа в ложу.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="places__right">
+                        <div class="places__player">
+                            <img src="{% static 'img/home/place-plater.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% include 'pages/page_parts/actual_picture.html' %}
+        {% include 'pages/page_parts/info_block.html' %}
+    </main>
+{% endblock %}
+{% block js %}
+    {{ block.super }}
+{% endblock %}
