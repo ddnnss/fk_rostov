@@ -4,7 +4,7 @@
 
 {% block content %}
 
-        <main>
+        <main >
 
             <section class="breadcrumbs">
                 <div class="container">
@@ -114,53 +114,33 @@
                         <div class="container">
                             <div class="bilet-form__place-map-heading">
                                 <h2>
-                                    Сектор  417
+                                    Сектор  {{ sector_name }}
                                 </h2>
                             </div>
                             <div class="bilet-form__place-map-info">
                                 <div class="bilet-form__place-map-info-item">
                                     <div style="background: green" class="bilet-form__place-map-info-square reserved-place">
                                     </div>
-                                    <span>
-                                        Есть цена
-                                    </span>
+                                    <span>Есть цена</span>
                                 </div>
                                 <div class="bilet-form__place-map-info-item">
                                     <div class="bilet-form__place-map-info-square free-place">
-
                                     </div>
-                                    <span>
-                                            Нет цены
-                                    </span>
+                                    <span>Нет цены</span>
                                 </div>
                                 <div class="bilet-form__place-map-info-item">
-
-                                    <span>
-                                            ||
-                                    </span>
+                                    <span>||</span>
                                 </div>
-                                <div class="bilet-form__place-map-info-item">
-
-                                    <span @click="selectAll">
-                                            Выделить все
-                                    </span>
+                                <div class="bilet-form__place-map-info-item clickable">
+                                    <span @click="selectAll">Выделить все</span>
                                 </div>
-                                <div class="bilet-form__place-map-info-item">
-
-                                    <span @click="deselectAll">
-                                            Убрать выделение
-                                    </span>
+                                <div class="bilet-form__place-map-info-item clickable">
+                                    <span @click="deselectAll">Убрать выделение</span>
                                 </div>
                             </div>
-                            {#                     type-place       type-place_type-reserved#}
-                            <div class="bilet-form__place-map-body-wrap">
-
+                            <div style="margin-bottom: 20px" class="bilet-form__place-map-body-wrap">
                                 <div class="bilet-form__place-map-body">
-
-
-
                                     <div class="type-place-row" v-for="(row,index) in rows">
-
                                         <div
                                                 :data-row="[[seat.row]]"
                                                 :data-seat="[[seat.seat]]"
@@ -171,11 +151,21 @@
                                         <div class="type-place"><a @click.pevent="selectRow(index)" >+</a></div>
                                         <div class="type-place"><a @click.pevent="deselectRow(index)" >-</a></div>
                                     </div>
-
-
-
                                 </div>
                             </div>
+                            <div class="bilet-form__bottom">
+                                <div class="bilet-form__bottom-form">
+                                    <p>Массовое изменение цены</p>
+                                    <input type="number"
+                                           v-model="mass_price"
+                                           @keyup="checkEnterMass">
+
+                                </div>
+                             <div class="type-button"><a @click.prevent="savePrices"><span class="type-button__text ">
+                                Сохранить
+                            </span></a></div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -195,10 +185,31 @@
             el: '#app',
             data: {
                 new_price:0,
+                mass_price:0,
                 temp_el_r:0,
                 temp_el_s:0,
                 show_price_popup:false,
-                rows : [[{'row': 1, 'seat': 1, 'price': 100, 'selected': 0}, {'row': 1, 'seat': 2, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 3, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 4, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 5, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 6, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 7, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 8, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 9, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 10, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 11, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 12, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 13, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 14, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 15, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 16, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 17, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 18, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 19, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 20, 'price': 0, 'selected': 0}], [{'row': 2, 'seat': 1, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 2, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 3, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 4, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 5, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 6, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 7, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 8, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 9, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 10, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 11, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 12, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 13, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 14, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 15, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 16, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 17, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 18, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 19, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 20, 'price': 0, 'selected': 0}], [{'row': 3, 'seat': 1, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 2, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 3, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 4, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 5, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 6, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 7, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 8, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 9, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 10, 'price': 0, 'selected': 0}], [{'row': 4, 'seat': 1, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 2, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 3, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 4, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 5, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 6, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 7, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 8, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 9, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 10, 'price': 0, 'selected': 0}], [{'row': 5, 'seat': 1, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 2, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 3, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 4, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 5, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 6, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 7, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 8, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 9, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 10, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 11, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 12, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 13, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 14, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 15, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 16, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 17, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 18, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 19, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 20, 'price': 0, 'selected': 0}], [{'row': 6, 'seat': 1, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 2, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 3, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 4, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 5, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 6, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 7, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 8, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 9, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 10, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 11, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 12, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 13, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 14, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 15, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 16, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 17, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 18, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 19, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 20, 'price': 0, 'selected': 0}]]
+                rows : [] //[[{'row': 1, 'seat': 1, 'price': 100, 'selected': 0}, {'row': 1, 'seat': 2, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 3, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 4, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 5, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 6, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 7, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 8, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 9, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 10, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 11, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 12, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 13, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 14, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 15, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 16, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 17, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 18, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 19, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 20, 'price': 0, 'selected': 0}], [{'row': 2, 'seat': 1, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 2, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 3, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 4, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 5, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 6, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 7, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 8, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 9, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 10, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 11, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 12, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 13, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 14, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 15, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 16, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 17, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 18, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 19, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 20, 'price': 0, 'selected': 0}], [{'row': 3, 'seat': 1, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 2, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 3, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 4, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 5, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 6, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 7, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 8, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 9, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 10, 'price': 0, 'selected': 0}], [{'row': 4, 'seat': 1, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 2, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 3, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 4, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 5, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 6, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 7, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 8, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 9, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 10, 'price': 0, 'selected': 0}], [{'row': 5, 'seat': 1, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 2, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 3, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 4, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 5, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 6, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 7, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 8, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 9, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 10, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 11, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 12, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 13, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 14, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 15, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 16, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 17, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 18, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 19, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 20, 'price': 0, 'selected': 0}], [{'row': 6, 'seat': 1, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 2, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 3, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 4, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 5, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 6, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 7, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 8, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 9, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 10, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 11, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 12, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 13, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 14, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 15, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 16, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 17, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 18, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 19, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 20, 'price': 0, 'selected': 0}]]
+
+            },
+            mounted(){
+              console.log('ready')
+                let csrfmiddlewaretoken = document.getElementsByName('csrfmiddlewaretoken')[0].value
+                let url = window.location.href.split('/')
+                let body = {
+                  'sector':url.pop(),
+                    'match':url.pop() }
+                fetch(`/cp/get_sector/`, {
+                method: 'post',
+                body: JSON.stringify(body),
+                headers: { "X-CSRFToken": csrfmiddlewaretoken },
+                credentials: 'same-origin'
+            }).then(res=>res.json())
+                .then(res => {
+
+                    console.log(res)
+                    this.rows = res
+                })
 
             },
             methods:{
@@ -239,13 +250,28 @@
                     this.show_price_popup = true
                 },
                 changeSinglePrice(){
-                    this.rows[this.temp_el_r][this.temp_el_s].price = this.new_price
+                   // this.rows[this.temp_el_r][this.temp_el_s].price = this.new_price
                     this.show_price_popup = false
                 },
                 checkEnter(e){
                   if (e.keyCode === 13) {
                         this.changeSinglePrice()
                       }
+                },
+                checkEnterMass(e){
+                  if (e.keyCode === 13) {
+                       for (row of this.rows){
+                           for (i of row){
+                               if (i.selected === 1){
+                                 console.log(i)
+                                   i.price = this.mass_price
+                               }
+                           }
+                       }
+                      }
+                },
+                getValue(){
+                  this.rows[this.temp_el_r][this.temp_el_s].price = this.new_price
                 },
                 selectAll(){
                     for (row of this.rows){
@@ -262,6 +288,26 @@
                     }
 
                 },
+                savePrices(){
+                    console.log('savings')
+                        let csrfmiddlewaretoken = document.getElementsByName('csrfmiddlewaretoken')[0].value
+                let url = window.location.href.split('/')
+                let body = {
+                  'sector':url.pop(),
+                    'match':url.pop(),
+                    'rows':this.rows}
+                fetch(`/cp/save_sector/`, {
+                method: 'post',
+                body: JSON.stringify(body),
+                headers: { "X-CSRFToken": csrfmiddlewaretoken },
+                credentials: 'same-origin'
+            }).then(res=>res.json())
+                .then(res => {
+
+                    console.log(res)
+
+                })
+                }
             }
         })
 
