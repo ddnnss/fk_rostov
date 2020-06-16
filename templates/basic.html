@@ -8,15 +8,82 @@
     <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+     <style>
+    .havePrice{
+        background: green !important;
+        color: #ffffff !important;
+    }
+         .seatSelected{
+             border-color: red !important;
+         }
+         .price_popup{
+             display: none;
+             position: absolute;
+             z-index: 100;
+             border: 1px solid #FACA22;
+             background: #ffffff;
+             padding: 10px;
+         }
+         .price_popup.popupActive{
+             display: block;
+         }
+         .price_popup p{
+             text-align: center;
+             line-height: unset;
+             font-family: Lato;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+             margin-bottom: 10px;
+         }
+         .price_popup input{
+             border: 1px solid #E0E0E0;
+             padding: 5px;
+             font-family: Lato;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+         }
+         .price_popup_wrapper{
+             display: flex;
+             justify-content: space-between;
+
+         }
+         .price_popup_wrapper span{
+             display: inline-block;
+             background: #FACA22;
+             color: #333333;
+             cursor: pointer;
+             padding: 5px;
+         }
+    </style>
+
 </head>
 <body>
-<div class="wrapper">
+<div id="app">
+    <div id="price_popup" class="price_popup" :class="{popupActive : show_price_popup}" >
+        <p>Установите цену</p>
+        <div class="price_popup_wrapper">
+          <input
+                  v-model="new_price"
+                  @keyup="checkEnter"
+                  id="price_popup_input"
+                  type="number">
+            <span @click="changeSinglePrice">OK</span>
+        </div>
+
+    </div>
+    <div class="wrapper">
 {% include 'header.html' %}
     {% block content %}
     {% endblock %}
 {% include 'footer.html' %}
 </div>
+</div>
+
 {% block js %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="{% static 'js/swiper.min.js' %}"></script>

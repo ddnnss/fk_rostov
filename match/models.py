@@ -19,7 +19,7 @@ class Match(models.Model):
         super(Match, self).save(*args, **kwargs)
 
     def __str__(self):
-        return f'{self.date} | Матч : {self.team1.name} - {self.team2.name}'
+        return f'id:{self.id} | {self.date} | Матч : {self.team1.name} - {self.team2.name}'
 
     class Meta:
         verbose_name = "Матч"

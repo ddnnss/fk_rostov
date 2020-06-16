@@ -1,0 +1,271 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+
+{% block content %}
+
+        <main>
+
+            <section class="breadcrumbs">
+                <div class="container">
+                    <div class="breadcrumbs__wrap">
+                        <div class="type-button">
+                            <a href="#">
+                            <span class="type-button__text tri-left">
+                                назад
+                            </span>
+                            </a>
+                        </div>
+                        <div class="breadcrumbs__content">
+                            <a href="#">
+                                Главная
+                            </a>
+                            <a href="#">
+                                Матчи
+                            </a>
+                            <span>
+                         %Match_name%
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bilet-form">
+
+                <div class="bilet-form__place active">
+                    <div class="bilet-form__heading">
+                        <div class="container">
+                            <div class="bilet-form__heading-wrap">
+                                <h2>
+                                    Выбор места
+                                </h2>
+                            </div>
+                            <div class="bilet-form__match-info">
+                                <div class="matches__item">
+                                    <div class="matches__item-teams">
+                                        <div class="matches__item-teams-item">
+                                            <div class="team-logo">
+                                                <img src="img/home/cl1.png" alt="">
+                                            </div>
+                                            <div class="team-name">
+                                                Ростов
+                                            </div>
+                                        </div>
+                                        <div class="matches__item-teams-item">
+                                            <div class="team-logo">
+                                                <img src="img/home/cl2.png" alt="">
+                                            </div>
+                                            <div class="team-name">
+                                                Спартак
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="matches__item-details">
+                                        <div class="matches__item-details-item">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M17.5 8.33334C17.5 14.1667 10 19.1667 10 19.1667C10 19.1667 2.5 14.1667 2.5 8.33334C2.5 4.19121 5.85786 0.833344 10 0.833344C14.1421 0.833344 17.5 4.19121 17.5 8.33334ZM12.5 8.33334C12.5 9.71406 11.3807 10.8333 10 10.8333C8.61929 10.8333 7.5 9.71406 7.5 8.33334C7.5 6.95263 8.61929 5.83334 10 5.83334C11.3807 5.83334 12.5 6.95263 12.5 8.33334Z" fill="#F9CA22"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10 19.1667C10 19.1667 17.5 14.1667 17.5 8.33334C17.5 4.19121 14.1421 0.833344 10 0.833344C5.85786 0.833344 2.5 4.19121 2.5 8.33334C2.5 14.1667 10 19.1667 10 19.1667ZM12.5 8.33334C12.5 9.71406 11.3807 10.8333 10 10.8333C8.61929 10.8333 7.5 9.71406 7.5 8.33334C7.5 6.95263 8.61929 5.83334 10 5.83334C11.3807 5.83334 12.5 6.95263 12.5 8.33334Z" fill="#F9CA22"/>
+                                            </svg>
+                                            <div class="matches__item-details-content">
+                                                <div class="matches__item-details-title">
+                                                    Ростов vs Спартак
+                                                </div>
+                                                <div class="matches__item-details-text">
+                                                    17 января, 20:00
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="matches__item-details-item">
+                                            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M15.6245 10.175L9.64948 16.15C9.33687 16.463 8.91266 16.6388 8.47031 16.6388C8.02796 16.6388 7.60376 16.463 7.29115 16.15L0.132812 8.99999V0.666656H8.46615L15.6245 7.82499C16.2707 8.47505 16.2707 9.52493 15.6245 10.175ZM5.54948 7.33332C6.23983 7.33332 6.79948 6.77368 6.79948 6.08332C6.79948 5.39297 6.23983 4.83332 5.54948 4.83332C4.85912 4.83332 4.29948 5.39297 4.29948 6.08332C4.29948 6.77368 4.85912 7.33332 5.54948 7.33332Z" fill="#F9CA22"/>
+                                            </svg>
+                                            <div class="matches__item-details-content">
+                                                <div class="matches__item-details-title">
+                                                    Премьер Лига
+                                                </div>
+                                                <div class="matches__item-details-text">
+                                                    Арена Ростов
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="matches__item-details-item">
+                                            <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.33407 7.45935V12.2073L9.6674 16.974L17.0007 12.2073V7.45935L9.6674 2.69269L2.33407 7.45935ZM9.6674 1.5L9.12242 0.661556L0.789082 6.07822C0.505289 6.26269 0.33407 6.57819 0.33407 6.91667V12.75C0.33407 13.0885 0.505289 13.404 0.789082 13.5884L9.12242 19.0051C9.45381 19.2205 9.88099 19.2205 10.2124 19.0051L18.5457 13.5884C18.8295 13.404 19.0007 13.0885 19.0007 12.75V6.91667C19.0007 6.57819 18.8295 6.26269 18.5457 6.07822L10.2124 0.661556L9.6674 1.5Z" fill="#FACA22"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.6674 11.75C10.2197 11.75 10.6674 12.1977 10.6674 12.75V18.1667C10.6674 18.719 10.2197 19.1667 9.6674 19.1667C9.11512 19.1667 8.6674 18.719 8.6674 18.1667V12.75C8.6674 12.1977 9.11512 11.75 9.6674 11.75Z" fill="#FACA22"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.514838 6.3432C0.831553 5.89075 1.45508 5.78072 1.90753 6.09743L9.6674 11.5293L17.4273 6.09743C17.8797 5.78072 18.5033 5.89075 18.82 6.3432C19.1367 6.79565 19.0266 7.41918 18.5742 7.7359L10.2409 13.5692C9.89655 13.8103 9.43826 13.8103 9.09394 13.5692L0.760608 7.7359C0.308159 7.41918 0.198124 6.79565 0.514838 6.3432Z" fill="#FACA22"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.09394 6.09743C9.43826 5.85641 9.89655 5.85641 10.2409 6.09743L18.5742 11.9308C19.0266 12.2475 19.1367 12.871 18.82 13.3235C18.5033 13.7759 17.8797 13.8859 17.4273 13.5692L9.6674 8.13732L1.90753 13.5692C1.45508 13.8859 0.831553 13.7759 0.514838 13.3235C0.198124 12.871 0.308159 12.2475 0.760608 11.9308L9.09394 6.09743Z" fill="#FACA22"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.6674 0.5C10.2197 0.5 10.6674 0.947715 10.6674 1.5V6.91667C10.6674 7.46895 10.2197 7.91667 9.6674 7.91667C9.11512 7.91667 8.6674 7.46895 8.6674 6.91667V1.5C8.6674 0.947715 9.11512 0.5 9.6674 0.5Z" fill="#FACA22"/>
+                                            </svg>
+                                            <div class="matches__item-details-content">
+                                                <div class="matches__item-details-title">
+                                                    Сектор
+                                                </div>
+                                                <div class="matches__item-details-text">
+                                                    417
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bilet-form__place-map">
+                        <div class="container">
+                            <div class="bilet-form__place-map-heading">
+                                <h2>
+                                    Сектор  417
+                                </h2>
+                            </div>
+                            <div class="bilet-form__place-map-info">
+                                <div class="bilet-form__place-map-info-item">
+                                    <div style="background: green" class="bilet-form__place-map-info-square reserved-place">
+                                    </div>
+                                    <span>
+                                        Есть цена
+                                    </span>
+                                </div>
+                                <div class="bilet-form__place-map-info-item">
+                                    <div class="bilet-form__place-map-info-square free-place">
+
+                                    </div>
+                                    <span>
+                                            Нет цены
+                                    </span>
+                                </div>
+                                <div class="bilet-form__place-map-info-item">
+
+                                    <span>
+                                            ||
+                                    </span>
+                                </div>
+                                <div class="bilet-form__place-map-info-item">
+
+                                    <span @click="selectAll">
+                                            Выделить все
+                                    </span>
+                                </div>
+                                <div class="bilet-form__place-map-info-item">
+
+                                    <span @click="deselectAll">
+                                            Убрать выделение
+                                    </span>
+                                </div>
+                            </div>
+                            {#                     type-place       type-place_type-reserved#}
+                            <div class="bilet-form__place-map-body-wrap">
+
+                                <div class="bilet-form__place-map-body">
+
+
+
+                                    <div class="type-place-row" v-for="(row,index) in rows">
+
+                                        <div
+                                                :data-row="[[seat.row]]"
+                                                :data-seat="[[seat.seat]]"
+                                                :data-price="[[seat.price]]"
+                                                class="type-place" v-for="(seat,index1) in row">
+                                            <a @click.pevent="showPricePopup(index,index1,$event)" @contextmenu.prevent="selectSeat(index,index1)" :class="{ havePrice: seat.price > 0, seatSelected : seat.selected === 1 }">[[seat.seat]]</a>
+                                        </div>
+                                        <div class="type-place"><a @click.pevent="selectRow(index)" >+</a></div>
+                                        <div class="type-place"><a @click.pevent="deselectRow(index)" >-</a></div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+
+{% endblock %}
+{% block js %}
+    {{ block.super }}
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            delimiters: ['[[', ']]'],
+            el: '#app',
+            data: {
+                new_price:0,
+                temp_el_r:0,
+                temp_el_s:0,
+                show_price_popup:false,
+                rows : [[{'row': 1, 'seat': 1, 'price': 100, 'selected': 0}, {'row': 1, 'seat': 2, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 3, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 4, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 5, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 6, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 7, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 8, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 9, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 10, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 11, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 12, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 13, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 14, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 15, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 16, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 17, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 18, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 19, 'price': 0, 'selected': 0}, {'row': 1, 'seat': 20, 'price': 0, 'selected': 0}], [{'row': 2, 'seat': 1, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 2, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 3, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 4, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 5, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 6, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 7, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 8, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 9, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 10, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 11, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 12, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 13, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 14, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 15, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 16, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 17, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 18, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 19, 'price': 0, 'selected': 0}, {'row': 2, 'seat': 20, 'price': 0, 'selected': 0}], [{'row': 3, 'seat': 1, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 2, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 3, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 4, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 5, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 6, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 7, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 8, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 9, 'price': 0, 'selected': 0}, {'row': 3, 'seat': 10, 'price': 0, 'selected': 0}], [{'row': 4, 'seat': 1, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 2, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 3, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 4, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 5, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 6, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 7, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 8, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 9, 'price': 0, 'selected': 0}, {'row': 4, 'seat': 10, 'price': 0, 'selected': 0}], [{'row': 5, 'seat': 1, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 2, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 3, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 4, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 5, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 6, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 7, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 8, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 9, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 10, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 11, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 12, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 13, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 14, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 15, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 16, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 17, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 18, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 19, 'price': 0, 'selected': 0}, {'row': 5, 'seat': 20, 'price': 0, 'selected': 0}], [{'row': 6, 'seat': 1, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 2, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 3, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 4, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 5, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 6, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 7, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 8, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 9, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 10, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 11, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 12, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 13, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 14, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 15, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 16, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 17, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 18, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 19, 'price': 0, 'selected': 0}, {'row': 6, 'seat': 20, 'price': 0, 'selected': 0}]]
+
+            },
+            methods:{
+                selectRow(index){
+                    console.log('select',index)
+                    for (i of this.rows[index]){
+                        i.selected = 1
+                    }
+                },
+                deselectRow(index){
+                    console.log('select',index)
+                    for (i of this.rows[index]){
+                        i.selected = 0
+                    }
+                },
+                selectSeat(r,s){
+                    console.log('select seat',r,s,event.target.getBoundingClientRect())
+                    if (this.rows[r][s].selected === 1){
+                        this.rows[r][s].selected = 0
+                    }else{
+                        this.rows[r][s].selected = 1
+                    }
+
+                },
+                showPricePopup(r,s,e){
+                    let popup = document.getElementById('price_popup')
+                    let popup_input = document.getElementById('price_popup_input')
+                    window.setTimeout(function () {
+                        popup_input.focus()
+                        popup_input.select()
+                    }, 0);
+                    let target_coord = e.target.getBoundingClientRect()
+                    this.temp_el_r = r
+                    this.temp_el_s = s
+                    this.new_price = this.rows[this.temp_el_r][this.temp_el_s].price
+                    popup.style.left = target_coord.x + 'px'
+                    popup.style.top = ( window.scrollY + target_coord.bottom) + 'px'
+                    this.show_price_popup = true
+                },
+                changeSinglePrice(){
+                    this.rows[this.temp_el_r][this.temp_el_s].price = this.new_price
+                    this.show_price_popup = false
+                },
+                checkEnter(e){
+                  if (e.keyCode === 13) {
+                        this.changeSinglePrice()
+                      }
+                },
+                selectAll(){
+                    for (row of this.rows){
+                        for (seat of row){
+                            seat.selected = 1
+                        }
+                    }
+                },
+                deselectAll(){
+                     for (row of this.rows){
+                        for (seat of row){
+                            seat.selected = 0
+                        }
+                    }
+
+                },
+            }
+        })
+
+    </script>
+
+
+{% endblock %}

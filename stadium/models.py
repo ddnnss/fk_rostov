@@ -45,8 +45,8 @@ class Place(models.Model):
 
 
 class Price(models.Model):
-    match = models.ManyToManyField(Match,verbose_name='Матч')
-    place = models.ManyToManyField(Place,verbose_name='Место')
+    match = models.ForeignKey(Match, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Матч')
+    place = models.ForeignKey(Place,  on_delete=models.CASCADE, blank=True, null=True,verbose_name='Место')
     price = models.IntegerField('Цена билета', blank=False, null=True)
 
     class Meta:
