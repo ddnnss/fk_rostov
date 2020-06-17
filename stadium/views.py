@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import *
-def s_417(request):
+def create_sectors(request):
     sectors=[
         {
         'name':417,
@@ -36,11 +36,23 @@ def s_417(request):
         # print(sector['name'])
 
         new_sector = Sector.objects.create(name=sector['name'])
+        seats = 0
         for row in sector['rows']:
             # print(row)
             # print(sector['rows'][row])
             new_row = Row.objects.create(number=row,sector=new_sector)
+            seats += sector['rows'][row]
             for i in range(1,sector['rows'][row]+1):
                 # print (i)
-                Place.objects.create(row=new_row,number=i)
+                Place.objects.create(row=new_row, number=i)
+            new_sector.seats = seats
+            new_sector.save()
         print('sector created: ',sector['name'])
+
+
+def get_sector_info(request):
+    match = Match.objects.get(id=1)
+    sector = Sector.objects.get(name_slug='417')
+    seats = sector
+    price = Price.objects.filter(place__row__sector_id=sector.id, match=match)
+    print(price)

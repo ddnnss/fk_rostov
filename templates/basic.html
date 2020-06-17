@@ -88,7 +88,9 @@
 <body>
 <div id="app">
  <form id="dummy_form" class="not-visible">{% csrf_token %}</form>
-    <div id="price_popup" class="price_popup" :class="{popupActive : show_price_popup}" >
+        {% if cpShowSector %}
+            <div id="price_popup" class="price_popup" :class="{popupActive : show_price_popup}" >
+
         <p>Установите цену</p>
         <div class="price_popup_wrapper">
           <input
@@ -101,6 +103,7 @@
         </div>
 
     </div>
+        {% endif %}
     <div class="wrapper">
 {% include 'header.html' %}
     {% block content %}

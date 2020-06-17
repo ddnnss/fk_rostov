@@ -12,6 +12,7 @@ class Match(models.Model):
     date = models.DateTimeField('Дата проведения', blank=True, null=True)
     ligue = models.CharField('Лига', max_length=255, default='Премьер Лига')
     place = models.CharField('Место', max_length=255, default='Арена Ростов')
+    is_preorder = models.BooleanField('Только предзаказ ?', blank=False, null=True)
     is_active = models.BooleanField('Отображается ?', default=True)
 
     def save(self, *args, **kwargs):

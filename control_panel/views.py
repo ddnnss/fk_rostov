@@ -4,6 +4,7 @@ from django.shortcuts import render
 from stadium.models import *
 from match.models import *
 def show_sector(request,match_id,sector_slug):
+    cpShowSector=True
     match = Match.objects.get(id=match_id).id
     sector = Sector.objects.get(name_slug=sector_slug).name_slug
     sector_name = Sector.objects.get(name_slug=sector_slug).name
@@ -11,7 +12,6 @@ def show_sector(request,match_id,sector_slug):
 
 def get_sector(request):
     body = json.loads(request.body)
-
     print(body)
     match = Match.objects.get(id=body['match'])
     sector = Sector.objects.get(name_slug=body['sector'])
@@ -19,7 +19,6 @@ def get_sector(request):
     rows = Row.objects.filter(sector=sector)
     # print(rows)
     sector_map = []
-
     for row in rows:
         row_map = []
         seats = Place.objects.filter(row=row)
@@ -29,11 +28,10 @@ def get_sector(request):
                 price = Price.objects.get(match=match, place=seat).price
             except:
                 price = 0
-
             row_map.append({'row': row.number, 'seat': seat.number, 'price': price, 'selected': 0})
         sector_map.append(row_map)
     print(sector_map)
-    return JsonResponse(sector_map,safe=False)
+    return JsonResponse(sector_map, safe=False)
 
 def save_sector(request):
     body = json.loads(request.body)
@@ -48,14 +46,17 @@ def save_sector(request):
             cur_row=int(row[i]['row'])
             cur_seat=int(row[i]['seat'])
             cur_price=int(row[i]['price'])
-            # if cur_price > 0:
             tempSector = Sector.objects.get(name_slug=sector_slug)
-            tempRow = Row.objects.get(sector=tempSector,number=cur_row)
-            tempSeat = Place.objects.get(row=tempRow,number=cur_seat)
-            tempPrice,created = Price.objects.get_or_create(match_id=match_id,place=tempSeat,defaults={'price':cur_price})
-            if not created:
-                print('price found')
-                tempPrice.price = cur_price
-                tempPrice.save()
+            tempRow = Row.objects.get(sector=tempSector, number=cur_row)
+            tempSeat = Place.objects.get(row=tempRow, number=cur_seat)
+            if cur_price > 0:
+                tempPrice,created = Price.objects.get_or_create(match_id=match_id,place=tempSeat,defaults={'price':cur_price})
+                if not created:
+                    print('price found')
+                    tempPrice.price = cur_price
+                    tempPrice.save()
+            else:
+                Price.objects.get(match_id=match_id,place=tempSeat).delete()
+
 
     return JsonResponse({'result':'ok'}, safe=False)

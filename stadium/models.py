@@ -5,6 +5,7 @@ from match.models import Match
 class Sector(models.Model):
     name = models.CharField('Название сектора', max_length=255, blank=False, null=True)
     name_slug = models.CharField(max_length=255, null=True, blank=True, editable=False)
+    seats = models.IntegerField('Мест', default=0)
 
     def save(self, *args, **kwargs):
         self.name_slug = slugify(self.name)

@@ -25,6 +25,7 @@ urlpatterns = [
     path('cart/', include('cart.urls')),
     path('std/', include('stadium.urls')),
     path('cp/', include('control_panel.urls')),
+    path('match/', include('match.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     # path('sitemap.xml', sitemap, {'sitemaps':sitemaps}),
 

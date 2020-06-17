@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="welcome__current-match-details-right">
                                         <div class="type-button">
-                                            <a href="#">
+                                            <a href="{% url 'show_stadium' nearestMatch.name_slug %}">
                                                 <span class="type-button__text">
                                                      Билеты
                                                 </span>
@@ -201,7 +201,7 @@
                                         </div>
                                         <div class="matches__item-get-ticket">
                                             <div class="type-button">
-                                                <a href="#">
+                                                <a href="{% url 'show_stadium' match.name_slug %}">
                                                     <span class="type-button__text tri-right">
                                                           Выбрать билет
                                                     </span>
